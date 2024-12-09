@@ -13,6 +13,7 @@ import { Profile } from './screens/Profile';
 import { Settings } from './screens/Settings';
 import { Updates } from './screens/Updates';
 import { NotFound } from './screens/NotFound';
+import HeaderComponentList, { HeaderComponentItem } from '@/components/header/HeaderComponentList';
 
 const HomeTabs = createBottomTabNavigator({
   screens: {
@@ -20,6 +21,7 @@ const HomeTabs = createBottomTabNavigator({
       screen: Home,
       options: {
         title: 'Feed',
+        headerLeft: () => <HeaderComponentList componentList={[HeaderComponentItem.MENU]}></HeaderComponentList>,
         tabBarIcon: ({ color, size }) => (
           <Image
             source={newspaper}
