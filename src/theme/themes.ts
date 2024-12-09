@@ -12,6 +12,7 @@ export const lightTheme = {
     text: '#000000',
     border: '#cccccc',
     notification: '#ff80ab',
+    inputBackgroud: '#eeeeee',
   },
 };
 
@@ -25,5 +26,6 @@ export const darkTheme = {
     text: '#ffffff',
     border: '#272727',
     notification: '#ff80ab',
+    inputBackgroud: '#eeeeee',
   },
 };

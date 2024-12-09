@@ -8,7 +8,7 @@ export enum HeaderComponentItem {
 }
 
 type Props = {
-    componentList: HeaderComponentItem[];
+    componentList?: HeaderComponentItem[];
 };
 
 type HeaderComponentsMapItem = {
@@ -31,7 +31,7 @@ const HeaderComponentList = (props: Props) => {
 
     return (
         <View>
-            {props.componentList.map(item => {
+            {props.componentList?.map(item => {
                 if (!headerComponentsMap[item]) return null;
                 return (
                     <Pressable

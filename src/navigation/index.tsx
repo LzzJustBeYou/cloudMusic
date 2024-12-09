@@ -14,14 +14,16 @@ import { Settings } from './screens/Settings';
 import { Updates } from './screens/Updates';
 import { NotFound } from './screens/NotFound';
 import HeaderComponentList, { HeaderComponentItem } from '@/components/header/HeaderComponentList';
+import Header from '@/components/header/Header';
 
 const HomeTabs = createBottomTabNavigator({
   screens: {
     Home: {
       screen: Home,
       options: {
-        title: 'Feed',
-        headerLeft: () => <HeaderComponentList componentList={[HeaderComponentItem.MENU]}></HeaderComponentList>,
+        header: () => {
+          return <Header lefeComponents={[HeaderComponentItem.MENU]} headerCenter='searchInput'></Header>
+        },
         tabBarIcon: ({ color, size }) => (
           <Image
             source={newspaper}
