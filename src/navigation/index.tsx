@@ -5,7 +5,7 @@ import {
   StaticParamList,
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
 import bell from '../assets/bell.png';
 import newspaper from '../assets/newspaper.png';
 import { Home } from './screens/Home';
@@ -14,6 +14,7 @@ import { Settings } from './screens/Settings';
 import { Updates } from './screens/Updates';
 import { NotFound } from './screens/NotFound';
 import HeaderComponentList, { HeaderComponentItem } from '@/components/header/HeaderComponentList';
+import HeaderSearchInput from '@/components/header/HeaderSearchInput';
 import Header from '@/components/header/Header';
 
 const HomeTabs = createBottomTabNavigator({
@@ -21,9 +22,7 @@ const HomeTabs = createBottomTabNavigator({
     Home: {
       screen: Home,
       options: {
-        header: () => {
-          return <Header lefeComponents={[HeaderComponentItem.MENU]} headerCenter='searchInput'></Header>
-        },
+        header: () => <Header lefeComponents={[HeaderComponentItem.MENU]} headerCenter='searchInput'></Header>,
         tabBarIcon: ({ color, size }) => (
           <Image
             source={newspaper}
@@ -104,6 +103,6 @@ type RootStackParamList = StaticParamList<typeof RootStack>;
 
 declare global {
   namespace ReactNavigation {
-    interface RootParamList extends RootStackParamList {}
+    interface RootParamList extends RootStackParamList { }
   }
 }

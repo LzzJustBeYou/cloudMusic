@@ -10,7 +10,7 @@ export const lightTheme = {
     background: '#ffffff',
     card: '#ffffff',
     text: '#000000',
-    border: '#cccccc',
+    border: '#ffffff',
     notification: '#ff80ab',
     inputBackgroud: '#eeeeee',
   },
@@ -21,11 +21,11 @@ export const darkTheme = {
   colors: {
     ...DarkTheme.colors,
     primary: '#bb86fc',
-    background: '#121212',
+    background: '#1f1f1f',
     card: '#1f1f1f',
     text: '#ffffff',
-    border: '#272727',
+    border: '#1f1f1f',
     notification: '#ff80ab',
-    inputBackgroud: '#eeeeee',
+    inputBackgroud: '#454545',
   },
 };

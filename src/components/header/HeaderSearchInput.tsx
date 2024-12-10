@@ -15,9 +15,9 @@ const HeaderSearchInput = () => {
 
 const styles = StyleSheet.create({
     textInputWrap: {
-        borderRadius: 12,
-        height: 24,
-        marginHorizontal: 16,
+        borderRadius: 16,
+        height: 32,
+        marginHorizontal: 8,
         paddingHorizontal: 12,
     }
 })
