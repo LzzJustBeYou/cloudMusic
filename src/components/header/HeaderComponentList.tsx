@@ -1,9 +1,10 @@
 import { View, Image, Pressable, StyleSheet, ImageSourcePropType } from "react-native";
 import menuImg from "@/assets/menu.png";
 import React, { memo } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { ParamListBase, useNavigation } from "@react-navigation/native";
 import { HeaderButton } from "@react-navigation/elements";
 import { useTheme } from "@/theme";
+import { DrawerNavigationProp } from "@react-navigation/drawer";
 
 export enum HeaderComponentItem {
     MENU = "menu",
@@ -11,6 +12,7 @@ export enum HeaderComponentItem {
 
 type Props = {
     componentList?: HeaderComponentItem[];
+    navigation: DrawerNavigationProp<ParamListBase>;
 };
 
 type HeaderComponentsMapItem = {
@@ -23,7 +25,7 @@ type HeaderComponentsMap = Partial<Record<HeaderComponentItem, HeaderComponentsM
 const HeaderComponentList = memo((props: Props) => {
     const { themeData } = useTheme();
 
-    const navigation = useNavigation();
+    const navigation = props.navigation;
 
     const headerComponentsMap: HeaderComponentsMap = React.useMemo(() => {
         return {
@@ -42,9 +44,8 @@ const HeaderComponentList = memo((props: Props) => {
                         key={item}
                         onPress={() => {
                             // TODO: 改成侧边导航
-                            navigation.navigate("Profile", {
-                                user: "jane",
-                            });
+                            // navigation.navigate("Settings");
+                            navigation.openDrawer();
                         }}
                     >
                         <Image tintColor={themeData.colors.primary} style={styles.imageItem} source={headerComponentsMap[item].source}></Image>

@@ -1,28 +1,39 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { HeaderButton, Text } from '@react-navigation/elements';
 import {
   createStaticNavigation,
   StaticParamList,
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Image, View } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { Image } from 'react-native';
 import bell from '../assets/bell.png';
 import newspaper from '../assets/newspaper.png';
-import { Home } from './screens/Home';
 import { Profile } from './screens/Profile';
 import { Settings } from './screens/Settings';
 import { Updates } from './screens/Updates';
 import { NotFound } from './screens/NotFound';
-import HeaderComponentList, { HeaderComponentItem } from '@/components/header/HeaderComponentList';
-import HeaderSearchInput from '@/components/header/HeaderSearchInput';
+import { HeaderComponentItem } from '@/components/header/HeaderComponentList';
 import Header from '@/components/header/Header';
+
+
+const HomeDrawer = createDrawerNavigator({
+  screens: {
+    Settings: {
+      screen: Settings,
+      options: {
+        drawerType: 'front',
+        header: (props) => <Header lefeComponents={[HeaderComponentItem.MENU]} headerCenter='searchInput' {...props}></Header>,
+      }
+    },
+  }
+})
 
 const HomeTabs = createBottomTabNavigator({
   screens: {
     Home: {
-      screen: Home,
+      screen: HomeDrawer,
       options: {
-        header: () => <Header lefeComponents={[HeaderComponentItem.MENU]} headerCenter='searchInput'></Header>,
+        headerShown: false,
         tabBarIcon: ({ color, size }) => (
           <Image
             source={newspaper}
@@ -74,17 +85,17 @@ const RootStack = createNativeStackNavigator({
         },
       },
     },
-    Settings: {
-      screen: Settings,
-      options: ({ navigation }) => ({
-        presentation: 'modal',
-        headerRight: () => (
-          <HeaderButton onPress={navigation.goBack}>
-            <Text>Close</Text>
-          </HeaderButton>
-        ),
-      }),
-    },
+    // Settings: {
+      // screen: DrawerNavigation,
+      // options: ({ navigation }) => ({
+      //   presentation: 'modal',
+      //   headerRight: () => (
+      //     <HeaderButton onPress={navigation.goBack}>
+      //       <Text>Close</Text>
+      //     </HeaderButton>
+      //   ),
+      // }),
+    // },
     NotFound: {
       screen: NotFound,
       options: {
@@ -96,6 +107,8 @@ const RootStack = createNativeStackNavigator({
     },
   },
 });
+
+
 
 export const Navigation = createStaticNavigation(RootStack);
 
