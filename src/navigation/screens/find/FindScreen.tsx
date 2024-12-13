@@ -1,12 +1,15 @@
+import { memo } from "react";
 import { View, Text } from "react-native";
 
 
-const Find = () => {
+const FindScreen = memo(() => {
+    console.log('find render');
+    
     return (
         <View>
             <Text>Find</Text>
         </View>
     )
-};
+});
 
-export { Find };
+export { FindScreen };

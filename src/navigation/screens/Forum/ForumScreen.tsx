@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
 
 
-const Forum = () => {
+const ForumScreen = () => {
     return (
         <View>
-            <Text>Forum</Text>
+            <Text>ForumScreen</Text>
         </View>
     )
 };
 
-export { Forum };
+export { ForumScreen };

@@ -5,28 +5,26 @@ import {
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Image, View } from 'react-native';
 import findImg from '../assets/find.png';
 import homeImg from '../assets/home.png';
 import fmImg from '../assets/fm.png';
 import forumImg from '../assets/forum.png';
 import meImg from '../assets/me.png';
-import { Profile } from './screens/Profile';
-import { Home } from './screens/Home';
-import { Find } from './screens/Find';
 import { NotFound } from './screens/NotFound';
 import { HeaderComponentItem } from '@/components/header/HeaderComponentList';
 import Header from '@/components/header/Header';
-import { Fm } from './screens/Fm';
-import { Me } from './screens/Me';
-import { Forum } from './screens/Forum';
 import TabBarIcon from '@/components/tabBarIcon/TabBarIcon';
+import HomeScreen from './screens/home/HomeScreen';
+import { FindScreen } from './screens/find/FindScreen';
+import { FmScreen } from './screens/fm/FmScreen';
+import { ForumScreen } from './screens/Forum/ForumScreen';
+import { MeScreen } from './screens/me/MeScreen';
 
 
 const HomeDrawer = createDrawerNavigator({
   screens: {
     Settings: {
-      screen: Home,
+      screen: HomeScreen,
       options: {
         drawerType: 'front',
         header: (props) => <Header lefeComponents={[HeaderComponentItem.MENU]} headerCenter='searchInput' {...props}></Header>,
@@ -51,7 +49,7 @@ const HomeTabs = createBottomTabNavigator({
       },
     },
     Find: {
-      screen: Find,
+      screen: FindScreen,
       options: {
         title: '发现',
         tabBarIcon: (props) => <TabBarIcon {...props} source={findImg}></TabBarIcon>,
@@ -63,7 +61,7 @@ const HomeTabs = createBottomTabNavigator({
       },
     },
     Fm: {
-      screen: Fm,
+      screen: FmScreen,
       options: {
         title: '漫游',
         tabBarIcon: (props) => <TabBarIcon {...props} source={fmImg}></TabBarIcon>,
@@ -75,7 +73,7 @@ const HomeTabs = createBottomTabNavigator({
       },
     },
     Forum: {
-      screen: Forum,
+      screen: ForumScreen,
       options: {
         title: '笔记',
         tabBarIcon: (props) => <TabBarIcon {...props} source={forumImg}></TabBarIcon>,
@@ -87,7 +85,7 @@ const HomeTabs = createBottomTabNavigator({
       },
     },
     Me: {
-      screen: Me,
+      screen: MeScreen,
       options: {
         title: '我的',
         tabBarIcon: (props) => <TabBarIcon {...props} source={meImg}></TabBarIcon>,
@@ -110,29 +108,6 @@ const RootStack = createNativeStackNavigator({
         headerShown: false,
       },
     },
-    Profile: {
-      screen: Profile,
-      linking: {
-        path: ':user(@[a-zA-Z0-9-_]+)',
-        parse: {
-          user: (value) => value.replace(/^@/, ''),
-        },
-        stringify: {
-          user: (value) => `@${value}`,
-        },
-      },
-    },
-    // Settings: {
-    // screen: DrawerNavigation,
-    // options: ({ navigation }) => ({
-    //   presentation: 'modal',
-    //   headerRight: () => (
-    //     <HeaderButton onPress={navigation.goBack}>
-    //       <Text>Close</Text>
-    //     </HeaderButton>
-    //   ),
-    // }),
-    // },
     NotFound: {
       screen: NotFound,
       options: {

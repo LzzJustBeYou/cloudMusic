@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
 
 
-const Fm = () => {
+const FmScreen = () => {
     return (
         <View>
-            <Text>Fm</Text>
+            <Text>FmScreen</Text>
         </View>
     )
 };
 
-export { Fm };
+export { FmScreen };

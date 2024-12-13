@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
 
 
-const Me = () => {
+const MeScreen = () => {
     return (
         <View>
-            <Text>Me</Text>
+            <Text>MeScreen</Text>
         </View>
     )
 };
 
-export { Me };
+export { MeScreen };
