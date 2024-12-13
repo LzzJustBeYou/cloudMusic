@@ -10,8 +10,6 @@ import { ThemeType, lightTheme, darkTheme } from './theme/themes'; // 定义的�
 // 加载导航和图片资源
 Asset.loadAsync([
   ...NavigationAssets,
-  require('./assets/newspaper.png'),
-  require('./assets/bell.png'),
 ]);
 
 // 防止启动画面自动隐藏

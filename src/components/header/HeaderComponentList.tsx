@@ -48,7 +48,7 @@ const HeaderComponentList = memo((props: Props) => {
                             navigation.openDrawer();
                         }}
                     >
-                        <Image tintColor={themeData.colors.primary} style={styles.imageItem} source={headerComponentsMap[item].source}></Image>
+                        <Image style={styles.imageItem} source={headerComponentsMap[item].source}></Image>
                     </HeaderButton>
                 )
             })}

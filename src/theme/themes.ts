@@ -6,7 +6,7 @@ export const lightTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#6200ee',
+    primary: '#FD3C5C',
     background: '#ffffff',
     card: '#ffffff',
     text: '#000000',
